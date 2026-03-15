@@ -1,23 +1,24 @@
 <html>
 <head>
-    <title>LAB Programs</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 30px;
-        }
-        h2 {
-            color: darkblue;
-        }
-        pre {
-            background-color: #f4f4f4;
-            padding: 15px;
-            border-left: 5px solid #007acc;
-            overflow-x: auto;
-            font-size: 14px;
-        }
-    </style>
+<title>LAB Programs</title>
+<style>
+body{
+font-family: Arial, sans-serif;
+margin:30px;
+}
+h2{
+color:darkblue;
+}
+pre{
+background-color:#f4f4f4;
+padding:15px;
+border-left:5px solid #007acc;
+overflow-x:auto;
+font-size:14px;
+}
+</style>
 </head>
+
 <body>
 
 <h2>1. CREATION OF BLOCK</h2>
@@ -26,6 +27,7 @@ import hashlib
 import time
 
 class Block:
+
     def __init__(self, index, previous_hash, data):
         self.index = index
         self.timestamp = int(time.time())
@@ -39,6 +41,7 @@ class Block:
 
 if __name__ == "__main__":
     block = Block(1, "0", "This is my first block")
+
     print("Block Created:")
     print("Index:", block.index)
     print("Timestamp:", block.timestamp)
@@ -54,6 +57,7 @@ import hashlib
 import time
 
 class Block:
+
     def __init__(self, index, previous_hash, data):
         self.index = index
         self.timestamp = int(time.time())
@@ -65,8 +69,8 @@ class Block:
         text = f"{self.index}{self.timestamp}{self.previous_hash}{self.data}"
         return hashlib.sha256(text.encode()).hexdigest()
 
-
 class Blockchain:
+
     def __init__(self):
         self.chain = [self.create_genesis_block()]
 
@@ -101,24 +105,24 @@ if __name__ == "__main__":
 from qiskit import QuantumCircuit, transpile
 from qiskit_aer import Aer
 
-qc = QuantumCircuit(2, 2)
+qc = QuantumCircuit(2,2)
 
-qc.h([0, 1])
-qc.cz(0, 1)
+qc.h([0,1])
+qc.cz(0,1)
 
-qc.h([0, 1])
-qc.x([0, 1])
+qc.h([0,1])
+qc.x([0,1])
 qc.h(1)
-qc.cx(0, 1)
+qc.cx(0,1)
 qc.h(1)
-qc.x([0, 1])
-qc.h([0, 1])
+qc.x([0,1])
+qc.h([0,1])
 
-qc.measure([0, 1], [0, 1])
+qc.measure([0,1],[0,1])
 
 backend = Aer.get_backend("qasm_simulator")
-compiled = transpile(qc, backend)
-result = backend.run(compiled, shots=1024).result()
+compiled = transpile(qc,backend)
+result = backend.run(compiled,shots=1024).result()
 
 print(result.get_counts())
 </code></pre>
@@ -130,20 +134,23 @@ import math
 
 N = 15
 
-for a in range(2, N):
-    if math.gcd(a, N) != 1:
+for a in range(2,N):
+
+    if math.gcd(a,N) != 1:
         continue
 
     r = 1
-    while pow(a, r, N) != 1:
+
+    while pow(a,r,N) != 1:
         r += 1
 
     if r % 2 == 0:
-        p = math.gcd(pow(a, r//2) - 1, N)
-        q = math.gcd(pow(a, r//2) + 1, N)
+
+        p = math.gcd(pow(a,r//2) - 1, N)
+        q = math.gcd(pow(a,r//2) + 1, N)
 
         if p > 1 and q > 1:
-            print("Factors of", N, "are:", p, "and", q)
+            print("Factors of",N,"are:",p,"and",q)
             break
 </code></pre>
 
@@ -155,15 +162,17 @@ import time
 
 pyautogui.press('win')
 time.sleep(2)
-pyautogui.write('calculator', interval=0.3)
+
+pyautogui.write('calculator',interval=0.3)
 time.sleep(2)
+
 pyautogui.press('enter')
 time.sleep(5)
 
-pyautogui.write('7', interval=1)
-pyautogui.write('+', interval=1)
-pyautogui.write('5', interval=1)
-pyautogui.write('=', interval=1)
+pyautogui.write('7',interval=1)
+pyautogui.write('+',interval=1)
+pyautogui.write('5',interval=1)
+pyautogui.write('=',interval=1)
 </code></pre>
 
 
@@ -174,18 +183,22 @@ import time
 
 pyautogui.press('win')
 time.sleep(1)
-pyautogui.write('chrome', interval=0.3)
+
+pyautogui.write('chrome',interval=0.3)
 time.sleep(2)
+
 pyautogui.press('enter')
 time.sleep(8)
 
-pyautogui.hotkey('ctrl', 'l')
+pyautogui.hotkey('ctrl','l')
 time.sleep(1)
-pyautogui.write('www.google.com', interval=0.3)
+
+pyautogui.write('www.google.com',interval=0.3)
 pyautogui.press('enter')
 
 time.sleep(6)
-pyautogui.write('Robotic Process Automation', interval=0.3)
+
+pyautogui.write('Robotic Process Automation',interval=0.3)
 pyautogui.press('enter')
 </code></pre>
 
@@ -196,26 +209,159 @@ a = 10
 b = 3.5
 c = "Python"
 
-numbers = [1, 2, 3, 4]
-colors = ("Red", "Green", "Blue")
-vowels = {'a', 'e', 'i', 'o', 'u'}
+numbers = [1,2,3,4]
+colors = ("Red","Green","Blue")
+vowels = {'a','e','i','o','u'}
 
 student = {
-    "name": "Arun",
-    "age": 20,
-    "course": "BSc CS"
+"name":"Arun",
+"age":20,
+"course":"BSc CS"
 }
 
 print("Scalar Variables:")
-print("Integer:", a)
-print("Float:", b)
-print("String:", c)
+print("Integer:",a)
+print("Float:",b)
+print("String:",c)
 
 print("\nCollection Variables:")
-print("List:", numbers)
-print("Tuple:", colors)
-print("Set:", vowels)
-print("Dictionary:", student)
+print("List:",numbers)
+print("Tuple:",colors)
+print("Set:",vowels)
+print("Dictionary:",student)
+</code></pre>
+
+
+<h2>8. ERC20 TOKEN</h2>
+<pre><code>
+class ERC20Token:
+
+    def __init__(self,name,symbol,total_supply):
+        self.name=name
+        self.symbol=symbol
+        self.decimals=18
+        self.total_supply=total_supply
+        self.balances={}
+        self.allowances={}
+        self.balances["owner"]=total_supply
+
+    def balanceOf(self,account):
+        return self.balances.get(account,0)
+
+    def transfer(self,sender,receiver,amount):
+
+        if self.balanceOf(sender) < amount:
+            print("Insufficient balance")
+            return False
+
+        self.balances[sender]-=amount
+        self.balances[receiver]=self.balanceOf(receiver)+amount
+
+        print("Transfer successful")
+        return True
+</code></pre>
+
+
+<h2>9. CRYPTO CURRENCY WALLET</h2>
+<pre><code>
+import secrets
+import hashlib
+import time
+
+class CryptoWallet:
+
+    def __init__(self,initial_balance=1000):
+        self.private_key = secrets.token_hex(32)
+        self.public_key = hashlib.sha256(self.private_key.encode()).hexdigest()
+        self.address = "0x"+hashlib.sha256(self.public_key.encode()).hexdigest()[-40:]
+        self.balance = initial_balance
+        self.transactions = []
+</code></pre>
+
+
+<h2>10. UNITARY MATRIX</h2>
+<pre><code>
+import math
+
+def apply_unitary(matrix,state):
+
+    result=[0,0]
+
+    result[0]=matrix[0][0]*state[0] + matrix[0][1]*state[1]
+    result[1]=matrix[1][0]*state[0] + matrix[1][1]*state[1]
+
+    return result
+</code></pre>
+
+
+<h2>11. INNER PRODUCTS</h2>
+<pre><code>
+def complex_inner_product(v1,v2):
+
+    if len(v1)!=len(v2):
+        return "Vectors must be same length"
+
+    result=0
+
+    for i in range(len(v1)):
+        result+=complex(v1[i]).conjugate()*complex(v2[i])
+
+    return result
+</code></pre>
+
+
+<h2>12. HADAMARD GATE</h2>
+<pre><code>
+import math
+
+def hadamard(qubit):
+
+    factor = 1/math.sqrt(2)
+
+    H=[
+        [factor,factor],
+        [factor,-factor]
+    ]
+
+    result=[
+        H[0][0]*qubit[0] + H[0][1]*qubit[1],
+        H[1][0]*qubit[0] + H[1][1]*qubit[1]
+    ]
+
+    return result
+</code></pre>
+
+
+<h2>13. SEQUENCE ACTIVITY</h2>
+<pre><code>
+import tkinter as tk
+import time
+</code></pre>
+
+
+<h2>14. GOOGLE SEARCH AUTOMATION</h2>
+<pre><code>
+import pyautogui
+import time
+
+pyautogui.press('win')
+time.sleep(1)
+
+pyautogui.write('chrome',interval=0.3)
+time.sleep(2)
+
+pyautogui.press('enter')
+time.sleep(8)
+
+pyautogui.hotkey('ctrl','l')
+
+pyautogui.write('www.google.com')
+pyautogui.press('enter')
+
+time.sleep(6)
+
+pyautogui.write('Robotic Process Automation')
+pyautogui.press('enter')
 </code></pre>
 
 </body>
