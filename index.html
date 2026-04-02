@@ -1,227 +1,819 @@
-<!DOCTYPE html>
-<html>
-<head>
+1.CREATION OF BLOCK
 
-<title>LAB 7 Record</title>
+Program:
 
-<style>
-
-body{
-font-family: Arial, sans-serif;
-margin:40px;
-line-height:1.6;
-}
-
-h1{
-text-align:center;
-color:#003366;
-}
-
-h2{
-color:#0b5394;
-margin-top:40px;
-}
-
-h3{
-color:#333;
-margin-top:20px;
-}
-
-pre{
-background:#0f172a;
-color:#e2e8f0;
-padding:15px;
-border-radius:10px;
-overflow-x:auto;
-font-size:14px;
-}
-
-hr{
-margin:40px 0;
-}
-
-.page-break{
-page-break-before: always;
-}
-
-</style>
-</head>
-
-<body>
-
-<h1>LAB – 7 RECORD</h1>
-<h2 style="text-align:center;">Blockchain & Quantum Computing</h2>
-
-<div style="text-align:center; margin-bottom:30px;">
-<p>M.Sc Computer Science | Gopi | 2025–2026</p>
-</div>
-
-<hr>
-
-<h1>LAB PROGRAMS</h1>
-
-<!-- PROGRAM 1 -->
-<div class="page-break"></div>
-<h2>Program 1: Creation of Block</h2>
-
-<h3>AIM</h3>
-<p>To create a block using hashing in blockchain.</p>
-
-<h3>ALGORITHM</h3>
-<ol>
-<li>Define Block class</li>
-<li>Initialize index, timestamp, previous hash, and data</li>
-<li>Generate hash using SHA-256</li>
-<li>Display block details</li>
-</ol>
-
-<h3>PROGRAM</h3>
-<pre><code>
 import hashlib
+
 import time
 
 class Block:
+
     def __init__(self, index, previous_hash, data):
+
         self.index = index
+
         self.timestamp = int(time.time())
+
         self.previous_hash = previous_hash
+
         self.data = data
+
         self.hash = self.calculate_hash()
 
     def calculate_hash(self):
+
         text = f"{self.index}{self.timestamp}{self.previous_hash}{self.data}"
+
         return hashlib.sha256(text.encode()).hexdigest()
 
-block = Block(1, "0", "This is my first block")
+if __name__ == "__main__":
 
-print("Index:", block.index)
-print("Hash:", block.hash)
-</code></pre>
+    block = Block(1, "0", "This is my first block")
 
-<h3>OUTPUT</h3>
-<pre>
-Index: 1
-Hash: xxxxx...
-</pre>
+    print("Block Created:")
 
-<!-- PROGRAM 2 -->
-<div class="page-break"></div>
-<h2>Program 2: Implementation of Blockchain</h2>
+    print("Index:", block.index)
 
-<h3>AIM</h3>
-<p>To implement blockchain using linked blocks.</p>
+    print("Timestamp:", block.timestamp)
 
-<h3>PROGRAM</h3>
-<pre><code>
-# Blockchain code here (same as your file)
-</code></pre>
+    print("Previous Hash:", block.previous_hash)
 
-<h3>OUTPUT</h3>
-<pre>
-Multiple blocks created successfully
-</pre>
+    print("Data:", block.data)
 
-<!-- PROGRAM 3 -->
-<div class="page-break"></div>
-<h2>Program 3: Grover Search Algorithm</h2>
+    print("Hash:", block.hash)
 
-<h3>AIM</h3>
-<p>To search an element using Grover’s algorithm.</p>
+ 
 
-<h3>OUTPUT</h3>
-<pre>
-{'11': 1024}
-</pre>
+2.IMPLEMENTATION OF BLOCKCHAIN
 
-<!-- PROGRAM 4 -->
-<div class="page-break"></div>
-<h2>Program 4: Shor’s Algorithm</h2>
+Program:
 
-<h3>AIM</h3>
-<p>To factor numbers using Shor’s algorithm.</p>
+import hashlib
 
-<h3>OUTPUT</h3>
-<pre>
-Factors of 15 are 3 and 5
-</pre>
+import time
 
-<!-- PROGRAM 5 -->
-<div class="page-break"></div>
-<h2>Program 5: Automated Calculator</h2>
+class Block:
 
-<h3>AIM</h3>
-<p>To automate calculator using Python.</p>
+    def __init__(self, index, previous_hash, data):
 
-<h3>OUTPUT</h3>
-<pre>
-7 + 5 = 12
-</pre>
+        self.index = index
 
-<!-- PROGRAM 6 -->
-<div class="page-break"></div>
-<h2>Program 6: Automated Search Engine</h2>
+        self.timestamp = int(time.time())
 
-<h3>AIM</h3>
-<p>To automate browser search.</p>
+        self.previous_hash = previous_hash
 
-<!-- PROGRAM 7 -->
-<div class="page-break"></div>
-<h2>Program 7: Scalar and Collection Variables</h2>
+        self.data = data
 
-<h3>AIM</h3>
-<p>To demonstrate Python variables.</p>
+        self.hash = self.calculate_hash()
 
-<!-- PROGRAM 8 -->
-<div class="page-break"></div>
-<h2>Program 8: ERC20 Token</h2>
+    def calculate_hash(self):
 
-<h3>AIM</h3>
-<p>To simulate ERC20 token operations.</p>
+        text = f"{self.index}{self.timestamp}{self.previous_hash}{self.data}"
 
-<!-- PROGRAM 9 -->
-<div class="page-break"></div>
-<h2>Program 9: Crypto Wallet</h2>
+        return hashlib.sha256(text.encode()).hexdigest()
 
-<h3>AIM</h3>
-<p>To create a cryptocurrency wallet.</p>
 
-<!-- PROGRAM 10 -->
-<div class="page-break"></div>
-<h2>Program 10: Unitary Matrix</h2>
 
-<h3>AIM</h3>
-<p>To apply unitary transformation.</p>
+class Blockchain:
 
-<!-- PROGRAM 11 -->
-<div class="page-break"></div>
-<h2>Program 11: Inner Product</h2>
+    def __init__(self):
 
-<h3>AIM</h3>
-<p>To calculate inner product of vectors.</p>
+        self.chain = [self.create_genesis_block()]
 
-<!-- PROGRAM 12 -->
-<div class="page-break"></div>
-<h2>Program 12: Hadamard Gate</h2>
+    def create_genesis_block(self):
 
-<h3>AIM</h3>
-<p>To simulate Hadamard gate.</p>
+        return Block(0, "0", "Genesis Block")
 
-<!-- PROGRAM 13 -->
-<div class="page-break"></div>
-<h2>Program 13: Sequence Activity</h2>
+    def get_latest_block(self):
 
-<h3>AIM</h3>
-<p>To demonstrate RPA sequence automation.</p>
+        return self.chain[-1]
 
-<!-- PROGRAM 14 -->
-<div class="page-break"></div>
-<h2>Program 14: Google Search Automation</h2>
+    def add_block(self, data):
 
-<h3>AIM</h3>
-<p>To automate Google search using Python.</p>
+        previous = self.get_latest_block()
 
-<hr>
-<p style="text-align:center;">Submitted by Gopi</p>
+        new_block = Block(len(self.chain), previous.hash, data)
 
-</body>
-</html>
+        self.chain.append(new_block)
+
+if __name__ == "__main__":
+
+    blockchain = Blockchain()
+
+    blockchain.add_block("First block")
+
+    blockchain.add_block("Second block")
+
+    blockchain.add_block("Third block")
+
+    for block in blockchain.chain:
+
+        print(f"\n--- Block {block.index} ---")
+
+        print("Timestamp:", block.timestamp)
+
+        print("Previous Hash:", block.previous_hash)
+
+        print("Hash:", block.hash)
+
+        print("Data:", block.data)
+
+ 
+
+3.GROVER SEARCH ALGORITHM
+
+Program:
+
+from qiskit import QuantumCircuit, transpile
+
+from qiskit_aer import Aer
+
+# Create circuit
+
+qc = QuantumCircuit(2, 2)
+
+# Superposition
+
+qc.h([0, 1])
+
+# Oracle (mark |11>)
+
+qc.cz(0, 1)
+
+# Diffusion operator
+
+qc.h([0, 1])
+
+qc.x([0, 1])
+
+qc.h(1)
+
+qc.cx(0, 1)
+
+qc.h(1)
+
+qc.x([0, 1])
+
+qc.h([0, 1])
+
+ 
+
+# Measure
+
+qc.measure([0, 1], [0, 1])
+
+# Run on simulator
+
+backend = Aer.get_backend("qasm_simulator")
+
+compiled = transpile(qc, backend)
+
+result = backend.run(compiled, shots=1024).result()
+
+print(result.get_counts())
+
+ 
+
+4.SHOR’S ALGORITHM
+
+Program:
+
+import math
+
+N = 15   # Number to factor
+
+for a in range(2, N):
+
+    if math.gcd(a, N) != 1:
+
+        continue
+
+    r = 1
+
+    while pow(a, r, N) != 1:
+
+        r += 1
+
+    if r % 2 == 0:
+
+        p = math.gcd(pow(a, r//2) - 1, N)
+
+        q = math.gcd(pow(a, r//2) + 1, N)
+
+ 
+
+        if p > 1 and q > 1:
+
+            print("Factors of", N, "are:", p, "and", q)
+
+            break
+
+ 
+
+5.AUTOMATED CALCULATOR
+
+Program:
+
+import pyautogui
+
+import time
+
+pyautogui.press('win')
+
+time.sleep(2)
+
+pyautogui.write('calculator', interval=0.3)
+
+time.sleep(2)
+
+pyautogui.press('enter')
+
+time.sleep(5)
+
+pyautogui.write('7', interval=1)
+
+pyautogui.write('+', interval=1)
+
+pyautogui.write('5', interval=1)
+
+pyautogui.write('=', interval=1)
+
+ 
+
+6.AUTOMATED SEARCH ENGINE
+
+Program:
+
+import pyautogui
+
+import time
+
+pyautogui.press('win')
+
+time.sleep(1)
+
+pyautogui.write('chrome', interval=0.3)   # or 'edge'
+
+time.sleep(2)
+
+pyautogui.press('enter')
+
+time.sleep(8)
+
+pyautogui.hotkey('ctrl', 'l')
+
+time.sleep(1)
+
+pyautogui.write('www.google.com', interval=0.3)
+
+pyautogui.press('enter')
+
+time.sleep(6)
+
+pyautogui.write('Robotic Process Automation', interval=0.3)
+
+pyautogui.press('enter')
+
+ 
+
+7.SCALAR AND COLLECTION VARIABLES
+
+Program:
+
+a = 10
+
+b = 3.5
+
+c = "Python"
+
+numbers = [1, 2, 3, 4]
+
+colors = ("Red", "Green", "Blue")
+
+vowels = {'a', 'e', 'i', 'o', 'u'}
+
+student = {
+
+    "name": "Arun",
+
+    "age": 20,
+
+    "course": "BSc CS"
+
+}
+
+print("Scalar Variables:")
+
+print("Integer:", a)
+
+print("Float:", b)
+
+print("String:", c)
+
+print("\nCollection Variables:")
+
+print("List:", numbers)
+
+print("Tuple:", colors)
+
+print("Set:", vowels)
+
+print("Dictionary:", student)
+
+ 
+
+ 8.ERC20
+
+Program:
+
+class ERC20Token:
+
+    def __init__(self, name, symbol, total_supply):
+
+        self.name = name
+
+        self.symbol = symbol
+
+        self.decimals = 18
+
+        self.total_supply = total_supply
+
+        self.balances = {}
+
+        self.allowances = {}
+
+        self.balances["owner"] = total_supply
+
+    def balanceOf(self, account):
+
+        return self.balances.get(account, 0)
+
+    def transfer(self, sender, receiver, amount):
+
+        if self.balanceOf(sender) < amount:
+
+            print("Insufficient balance")
+
+            return False
+
+        self.balances[sender] -= amount
+
+        self.balances[receiver] = self.balanceOf(receiver) + amount
+
+        print("Transfer successful")
+
+        return True
+
+    def approve(self, owner, spender, amount):
+
+        if owner not in self.allowances:
+
+            self.allowances[owner] = {}
+
+        self.allowances[owner][spender] = amount
+
+        print("Approval successful")
+
+        return True
+
+    def transferFrom(self, spender, from_acc, to_acc, amount):
+
+        allowed = self.allowances.get(from_acc, {}).get(spender, 0)
+
+        if self.balanceOf(from_acc) < amount:
+
+            print("Insufficient balance")
+
+            return False
+
+        if allowed < amount:
+
+            print("Allowance exceeded")
+
+            return False
+
+        self.balances[from_acc] -= amount
+
+        self.balances[to_acc] = self.balanceOf(to_acc) + amount
+
+        self.allowances[from_acc][spender] -= amount
+
+        print("TransferFrom successful")
+
+        return True
+
+token = ERC20Token("MyToken", "MTK", 1000000)
+
+print("Owner Balance:", token.balanceOf("owner"))
+
+token.transfer("owner", "alice", 5000)
+
+print("Alice Balance:", token.balanceOf("alice"))
+
+token.approve("alice", "bob", 1000)
+
+token.transferFrom("bob", "alice", "charlie", 500)
+
+print("Charlie Balance:", token.balanceOf("charlie"))
+
+
+
+ 9.Crypto currency wallet
+
+Program:
+
+import secrets
+
+import hashlib
+
+import time
+
+class CryptoWallet:
+
+    def __init__(self, initial_balance=1000):
+
+        self.private_key = secrets.token_hex(32)
+
+        self.public_key = hashlib.sha256(self.private_key.encode()).hexdigest()
+
+        self.address = "0x" + hashlib.sha256(self.public_key.encode()).hexdigest()[-40:]
+
+        self.balance = initial_balance
+
+        self.transactions = []
+
+    def create_transaction(self, sender, receiver, amount):
+
+        tx = {
+
+            "from": sender,
+
+            "to": receiver,
+
+            "amount": amount,
+
+            "time": time.strftime("%Y-%m-%d %H:%M:%S")
+
+        }
+
+        tx["hash"] = hashlib.sha256(str(tx).encode()).hexdigest()
+
+        self.transactions.append(tx)
+
+        return tx
+
+    def send(self, receiver, amount):
+
+        if amount <= 0:
+
+            print("Amount must be positive.")
+
+            return
+
+        if amount > self.balance:
+
+            print("Insufficient balance.")
+
+            return
+
+        self.balance -= amount
+
+        tx = self.create_transaction(self.address, receiver, amount)
+
+        print("Transaction Successful!")
+
+        print("Transaction Hash:", tx["hash"])
+
+    def receive(self, sender, amount):
+
+        if amount <= 0:
+
+            print("Amount must be positive.")
+
+            return
+
+        self.balance += amount
+
+        tx = self.create_transaction(sender, self.address, amount)
+
+        print("Coins Received!")
+
+        print("Transaction Hash:", tx["hash"])
+
+ 
+
+    def show_wallet(self):
+
+        print("\n=== CRYPTO WALLET ===")
+
+        print("Address :", self.address)
+
+        print("Balance :", self.balance, "Coins")
+
+    def show_transactions(self):
+
+        if not self.transactions:
+
+            print("No transactions yet.")
+
+            return
+
+        print("\n=== TRANSACTION HISTORY ===")
+
+        for tx in self.transactions:
+
+            print(tx)
+
+wallet = CryptoWallet()
+
+wallet.show_wallet()
+
+menu = """
+
+1. Send Coins
+
+2. Receive Coins
+
+3. Show Balance
+
+4. Show Transactions
+
+5. Exit
+
+"""
+
+while True:
+
+    print(menu)
+
+    choice = input("Enter choice: ").strip()
+
+ 
+
+    if choice == "1":
+
+        receiver = input("Receiver Address: ")
+
+        amount = float(input("Amount: "))
+
+        wallet.send(receiver, amount)
+
+    elif choice == "2":
+
+        sender = input("Sender Address: ")
+
+        amount = float(input("Amount: "))
+
+        wallet.receive(sender, amount)
+
+    elif choice == "3":
+
+        wallet.show_wallet()
+
+    elif choice == "4":
+
+        wallet.show_transactions()
+
+    elif choice == "5":
+
+        print("Exiting Wallet...")
+
+        break
+
+    else:
+
+        print("Invalid choice. Try again.")
+
+ 
+
+10.Unitary Matrix
+
+Program:
+
+import math
+
+def apply_unitary(matrix, state):
+
+    result = [0, 0]
+
+    result[0] = matrix[0][0]*state[0] + matrix[0][1]*state[1]
+
+    result[1] = matrix[1][0]*state[0] + matrix[1][1]*state[1]
+
+    return result
+
+factor = 1 / math.sqrt(2)
+
+H = [
+
+    [factor, factor],
+
+    [factor, -factor]
+
+]
+
+ 
+
+qubit = [1, 0]
+
+print("Initial Qubit State |0>:", qubit)
+
+new_state = apply_unitary(H, qubit)
+
+print("After Applying Hadamard Gate:")
+
+print(new_state)
+
+ 
+
+ 11.Inner Products
+
+Program:
+
+def complex_inner_product(v1, v2):
+
+    if len(v1) != len(v2):
+
+        return "Vectors must be of same length"
+
+    result = 0
+
+    for i in range(len(v1)):
+
+        result += complex(v1[i]).conjugate() * complex(v2[i])
+
+    return result
+
+n = int(input("Enter number of elements in vectors: "))
+
+A = []
+
+B = []
+
+print("Enter elements of Vector A (in form a+bj):")
+
+for i in range(n):
+
+    value = complex(input(f"A[{i}] = "))
+
+    A.append(value)
+
+print("Enter elements of Vector B (in form a+bj):")
+
+for i in range(n):
+
+    value = complex(input(f"B[{i}] = "))
+
+    B.append(value)
+
+result = complex_inner_product(A, B)
+
+print("Inner Product:", result)
+
+ 
+
+ 12.Hadamard Gate
+
+Program:
+
+import math
+
+def hadamard(qubit):
+
+    factor = 1 / math.sqrt(2)
+
+    H = [
+
+        [factor, factor],
+
+        [factor, -factor]
+
+    ]
+
+    result = [
+
+        H[0][0]*qubit[0] + H[0][1]*qubit[1],
+
+        H[1][0]*qubit[0] + H[1][1]*qubit[1]
+
+    ]
+
+    return result
+
+print("Single Qubit Hadamard Gate Simulation")
+
+print("Enter initial qubit state")
+
+alpha = float(input("Amplitude for |0>: "))
+
+beta = float(input("Amplitude for |1>: "))
+
+qubit = [alpha, beta]
+
+print("\nInitial State:", qubit)
+
+new_state = hadamard(qubit)
+
+print("After Applying Hadamard Gate:")
+
+print(new_state)
+
+ 
+
+13.Sequence Activity
+
+Program:
+
+import tkinter as tk, time
+
+def run_rpa_scalar():
+
+    output.delete("1.0", tk.END)
+
+    output.insert(tk.END,"RPA Bot Started...\n")
+
+    root.update(); time.sleep(1)
+
+    s=25; r=s*2
+
+    output.insert(tk.END,f"Scalar Value: {s}\nAfter Automation (x2): {r}\nTask Completed.\n")
+
+def run_rpa_collection():
+
+    output.delete("1.0", tk.END)
+
+    output.insert(tk.END,"RPA Bot Started...\n")
+
+    root.update(); time.sleep(1)
+
+    c=[5,10,15,20]
+
+    output.insert(tk.END,f"Original List: {c}\n")
+
+    total=sum(c)
+
+    output.insert(tk.END,f"Total Sum: {total}\n")
+
+    for i in c:
+
+        output.insert(tk.END,f"Processing Item: {i}\n")
+
+        root.update(); time.sleep(0.5)
+
+    output.insert(tk.END,"Task Completed.\n")
+
+root=tk.Tk()
+
+root.title("RPA Bot - Sequence Activity")
+
+root.geometry("500x400")
+
+ 
+
+tk.Label(root,text="RPA - Sequence Activity",font=("Arial",12,"bold")).pack(pady=10)
+
+tk.Button(root,text="Run Scalar Automation",width=25,command=run_rpa_scalar).pack(pady=5)
+
+tk.Button(root,text="Run Collection Automation",width=25,command=run_rpa_collection).pack(pady=5)
+
+output=tk.Text(root,height=15,width=60)
+
+output.pack(pady=10)
+
+root.mainloop()
+
+ 
+
+ 14.Google Search Automation
+
+Program:
+
+import pyautogui
+
+import time
+
+pyautogui.press('win')
+
+time.sleep(1)
+
+pyautogui.write('chrome', interval=0.3)   # or 'edge'
+
+time.sleep(2)
+
+pyautogui.press('enter')
+
+time.sleep(8)
+
+pyautogui.hotkey('ctrl', 'l')
+
+time.sleep(1)
+
+pyautogui.write('www.google.com', interval=0.3)
+
+pyautogui.press('enter')
+
+time.sleep(6)
+
+pyautogui.write('Robotic Process Automation', interval=0.3)
+
+pyautogui.press('enter')
